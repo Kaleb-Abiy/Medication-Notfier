@@ -1,5 +1,0 @@
-- Users add medication
-- Users delete medication
-- Users D/C(hold) medication
-- Users can add additional info about the medication get the info on every notfication
-- Users add each time they take medication and get notfied each time
