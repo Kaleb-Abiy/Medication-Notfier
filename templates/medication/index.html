@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}home{% endblock %}
+
+{% block content %}
+    <h1>Hello, {{request.user.username}}</h1>
+    <h3>You have {{med.med_name}} to take at:</h3>
+
+      {% if t %}
+      <ul class="list-group">
+            <li class="list-group-item list-group-item-info">{{notf_times}}</li>
+    </ul>
+      {% else %}
+        {% for i in notf_times %}
+        <ul class="list-group">
+                <li class="list-group-item list-group-item-info">{{i}}</li>
+        </ul>
+        {% endfor %}
+        {% endif %}
+
+{% endblock %}

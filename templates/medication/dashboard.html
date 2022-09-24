@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}home{% endblock %}
+
+{% block content %}
+
+  
+   
+   <h3>Here are the medication you have</h3>
+
+  
+<div class="row">
+  {% if leng <= 1 %}
+  <div class="col-4">
+      <div class="card text-bg-dark mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{medication.med_name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">for : {{medication.indication}}</h6>
+            <p class="card-text">Dosage: {{medication.dosage}} </p>
+            <a href="{{medication.get_absolute_url}}">Deail about: {{medication.med_name}}</a>
+            <h3>times to take:</h3>
+            {{medication.get_notf}}
+          </div>
+      </div>  
+      </div>             
+  {% else %}
+   {% for med in meds %}
+    <div class="col-4">
+    <div class="card text-bg-dark mb-3" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{med.med_name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">for : {{med.indication}}</h6>
+          <p class="card-text">Dosage: {{med.dosage}} </p>
+          <a href="{{med.get_absolute_url}}">Deail about: {{med.med_name}}</a>
+          <h3>times to take:</h3>
+          {% for m in med.get_notf %}
+              {{m}}
+          {% endfor %}
+        </div>
+    </div>  
+    </div>             
+   {% endfor %}
+   {% endif%}
+</div>  
+{% endblock %}
