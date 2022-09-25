@@ -1,0 +1,1 @@
+web: gunicorn mednotfier.wsgi --log-file -
